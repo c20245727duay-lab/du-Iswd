@@ -1,20 +1,20 @@
 
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
-    <!-- 1. Page settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15370D">
+
     <title>Waste Less, and Live More</title>
 
-    <!-- 2. Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- 3. Custom styles and design tokens -->
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
 
+        /* Design tokens: define colors once and reuse them. */
         @theme {
             --color-cream: #F7F5E9;
             --color-eco: #15370D;
@@ -23,12 +23,14 @@
         }
 
         @layer components {
+            /* Reusable card for products and services. */
             .eco-card {
                 @apply rounded-2xl bg-white p-6 shadow-md dark:bg-neutral-900 dark:text-white;
             }
 
+            /* Reusable button for consistent styling. */
             .eco-button {
-                @apply rounded-full bg-gold px-5 py-3 font-bold text-eco;
+                @apply inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 font-bold text-eco hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-eco dark:bg-gold dark:text-eco dark:focus-visible:outline-gold;
             }
         }
     </style>
@@ -36,128 +38,470 @@
 
 <body class="min-h-screen bg-cream text-eco dark:bg-neutral-950 dark:text-white">
 
-    <!-- 4. Scroll progress bar -->
-    <div id="progressBar"></div>
+    <!-- Scroll progress bar -->
+    <div
+        id="progressBar"
+        role="progressbar"
+        aria-label="Page reading progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        class="fixed left-0 top-0 z-50 h-1 w-0 bg-gold">
+    </div>
 
-    <!-- 5. Header and navigation -->
-    <header>
-        <nav>
-            <!-- Brand name -->
-            <a href="#home">♻ Waste Less</a>
+    <!-- Header and navigation -->
+    <header class="bg-white shadow-sm dark:bg-eco">
+        <nav
+            aria-label="Main navigation"
+            class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 p-5">
 
-            <!-- Navigation links -->
-            <a href="#about">About</a>
-            <a href="#products">Products</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a
+                href="#home"
+                class="text-lg font-black text-eco focus-visible:outline-2 dark:text-gold">
+                ♻ Waste Less
+            </a>
 
-            <!-- Dark mode button -->
-            <button id="darkModeToggle" type="button">
-                Light Mode
-            </button>
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                <a href="#about"
+                    class="rounded text-eco hover:text-leaf focus-visible:outline-2 dark:text-white dark:hover:text-gold">
+                    About
+                </a>
+                <a href="#products"
+                    class="rounded text-eco hover:text-leaf focus-visible:outline-2 dark:text-white dark:hover:text-gold">
+                    Products
+                </a>
+                <a href="#services"
+                    class="rounded text-eco hover:text-leaf focus-visible:outline-2 dark:text-white dark:hover:text-gold">
+                    Services
+                </a>
+                <a href="#contact"
+                    class="rounded text-eco hover:text-leaf focus-visible:outline-2 dark:text-white dark:hover:text-gold">
+                    Contact
+                </a>
+
+                <button
+                    id="darkModeToggle"
+                    type="button"
+                    aria-pressed="true"
+                    class="eco-button">
+                    Light 
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- 6. Main content -->
     <main>
-
         <!-- Hero section -->
-        <section id="home">
-            <div id="heroContent">
-                <h1>Waste Less, and Live More.</h1>
-                <p>Reduce waste and create a cleaner community.</p>
+        <section
+            id="home"
+            class="mx-auto grid min-h-[70vh] max-w-6xl items-center gap-10 px-6 py-16 dark:bg-neutral-950 md:grid-cols-2 md:py-20">
 
-                <a href="#products">Explore Products</a>
-                <button id="replayBtn" type="button">
-                    Replay Intro
-                </button>
+            <div id="heroContent">
+                <p class="mb-4 font-bold text-eco dark:text-gold">
+                    ♻ WELCOME TO WASTE LESS
+                </p>
+
+                <h1 class="mb-5 text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
+                    Waste Less,
+                    <span class="text-eco dark:text-gold">
+                        and Live More.
+                    </span>
+                    🌱
+                </h1>
+
+                <p class="mb-7 max-w-xl leading-7 text-eco dark:text-neutral-200">
+                    Reduce waste, recycle materials, and create a cleaner,
+                    greener community for everyone.
+                </p>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#products" class="eco-button">
+                        Explore Products
+                    </a>
+
+                    <button
+                        id="replayBtn"
+                        type="button"
+                        class="rounded-full border-2 border-eco px-5 py-3 font-bold text-eco hover:bg-eco hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-gold dark:bg-neutral-900 dark:text-gold dark:hover:bg-gold dark:hover:text-eco">
+                        Replay Intro
+                    </button>
+                </div>
             </div>
 
-            <div id="heroImage">
-                <h2>🌿♻️🌎</h2>
-                <p>Choose Green. Live Clean.</p>
+            <div id="heroImage" class="text-center">
+                <div
+                    aria-hidden="true"
+                    class="text-7xl sm:text-8xl">
+                    🌿♻️🌎
+                </div>
+
+                <h2 class="mt-5 text-2xl font-bold text-eco dark:text-gold">
+                    Choose Green. Live Clean.
+                </h2>
+
+                <p class="mt-2 text-eco dark:text-neutral-200">
+                    Small Actions, Big Changes!
+                </p>
             </div>
         </section>
 
         <!-- About section -->
-        <section id="about" class="reveal">
-            <h2>About Us</h2>
-            <p>
-                We promote recycling, proper waste segregation,
-                and upcycling to protect the environment.
-            </p>
+        <section
+            id="about"
+            class="reveal bg-leaf/20 px-6 py-16 dark:bg-eco md:py-20">
+
+            <div class="mx-auto max-w-4xl text-center">
+                <p class="mb-3 font-bold text-eco dark:text-gold">
+                    OUR PURPOSE
+                </p>
+
+                <h2 class="mb-5 text-3xl font-black md:text-4xl">
+                    About Us
+                </h2>
+
+                <p class="leading-7 text-eco dark:text-neutral-100">
+                    Waste Less, and Live More promotes recycling, proper
+                    waste segregation, and upcycling to protect the
+                    environment and create livelihood opportunities.
+                    We believe small actions can make a big difference
+                    in building a cleaner community.
+                </p>
+            </div>
         </section>
 
         <!-- Products section -->
-        <section id="products" class="reveal">
-            <h2>Our Products</h2>
+        <section
+            id="products"
+            class="reveal mx-auto max-w-6xl px-6 py-16 dark:bg-neutral-950 md:py-20">
 
-            <article class="eco-card">
-                <h3>Recycled Planters</h3>
-            </article>
+            <div class="mb-10 text-center">
+                <p class="mb-3 font-bold text-eco dark:text-gold">
+                    RECYCLE AND REUSE
+                </p>
 
-            <article class="eco-card">
-                <h3>Eco-Bricks</h3>
-            </article>
+                <h2 class="mb-4 text-3xl font-black md:text-4xl">
+                    Our Products
+                </h2>
 
-            <article class="eco-card">
-                <h3>Upcycled Bags</h3>
-            </article>
+                <p class="text-eco dark:text-neutral-300">
+                    Useful products made from recycled materials.
+                </p>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+
+                <article class="eco-card text-center">
+                    <div aria-hidden="true" class="text-6xl">🪴</div>
+
+                    <h3 class="my-4 text-xl font-bold text-eco dark:text-gold">
+                        Recycled Planters
+                    </h3>
+
+                    <p class="leading-6">
+                        Plant pots made from recycled plastic.
+                    </p>
+
+                    <p class="mt-4 text-lg font-black"></p>
+                </article>
+
+                <article class="eco-card text-center">
+                    <div aria-hidden="true" class="text-6xl">🧱</div>
+
+                    <h3 class="my-4 text-xl font-bold text-eco dark:text-gold">
+                        Eco-Bricks
+                    </h3>
+
+                    <p class="leading-6">
+                        Plastic bottles filled with clean plastic waste.
+                    </p>
+
+                    <p class="mt-4 text-lg font-black"></p>
+                </article>
+
+                <article class="eco-card text-center sm:col-span-2 md:col-span-1">
+                    <div aria-hidden="true" class="text-6xl">👜</div>
+
+                    <h3 class="my-4 text-xl font-bold text-eco dark:text-gold">
+                        Upcycled Bags
+                    </h3>
+
+                    <p class="leading-6">
+                        Reusable bags made from old clothes and fabric.
+                    </p>
+
+                    <p class="mt-4 text-lg font-black"></p>
+                </article>
+            </div>
         </section>
 
         <!-- Services section -->
-        <section id="services" class="reveal">
-            <h2>Our Services</h2>
-            <article class="eco-card">Recycling</article>
-            <article class="eco-card">Waste Collection</article>
-            <article class="eco-card">Upcycled Products</article>
+        <section
+            id="services"
+            class="reveal bg-leaf/20 px-6 py-16 dark:bg-neutral-950 md:py-20">
+
+            <div class="mx-auto max-w-6xl">
+                <div class="mb-10 text-center">
+                    <p class="mb-3 font-bold text-eco dark:text-gold">
+                        HOW WE HELP
+                    </p>
+
+                    <h2 class="text-3xl font-black md:text-4xl">
+                        Our Services
+                    </h2>
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                    <article class="eco-card">
+                        <h3 class="mb-3 text-xl font-bold text-eco dark:text-gold">
+                            ♻️ Recycling
+                        </h3>
+
+                        <p class="leading-7">
+                            Collect and recycle plastic, paper, and reusable
+                            materials to reduce community waste.
+                        </p>
+                    </article>
+
+                    <article class="eco-card">
+                        <h3 class="mb-3 text-xl font-bold text-eco dark:text-gold">
+                            🌱 Waste Collection
+                        </h3>
+
+                        <p class="leading-7">
+                            Encourage proper waste segregation and
+                            responsible disposal practices.
+                        </p>
+                    </article>
+
+                    <article class="eco-card sm:col-span-2 lg:col-span-1">
+                        <h3 class="mb-3 text-xl font-bold text-eco dark:text-gold">
+                            🪴 Upcycled Products
+                        </h3>
+
+                        <p class="leading-7">
+                            Transform old materials into useful,
+                            creative, and environmentally friendly products.
+                        </p>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <!-- Contact section -->
-        <section id="contact" class="reveal">
-            <h2>Contact Us</h2>
+        <section
+            id="contact"
+            class="reveal bg-leaf/20 px-6 py-16 dark:bg-eco md:py-20">
 
-            <form id="contactForm">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" required>
+            <div class="mx-auto max-w-xl">
+                <div class="mb-8 text-center">
 
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required>
+                    <h2 class="text-3xl font-black md:text-4xl">
+                        Contact Us
+                    </h2>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
+                    <p class="mt-3 text-eco dark:text-neutral-200">
+                        Have a question or want to support our mission?
+                        Send us a message.
+                    </p>
+                </div>
 
-                <button type="submit" class="eco-button">
-                    Send Message
-                </button>
+                <form
+                    id="contactForm"
+                    class="eco-card space-y-5"
+                    aria-describedby="formStatus">
 
-                <p id="formStatus" role="status"></p>
-            </form>
+                    <div>
+                        <label for="name" class="mb-2 block font-bold">
+                            Name
+                        </label>
+
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required
+                            class="w-full rounded-lg border border-eco bg-white p-3 text-eco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eco dark:border-gold dark:bg-neutral-800 dark:text-white dark:focus-visible:outline-gold">
+                    </div>
+
+                    <div>
+                        <label for="email" class="mb-2 block font-bold">
+                            Email
+                        </label>
+
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                            class="w-full rounded-lg border border-eco bg-white p-3 text-eco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eco dark:border-gold dark:bg-neutral-800 dark:text-white dark:focus-visible:outline-gold">
+                    </div>
+
+                    <div>
+                        <label for="message" class="mb-2 block font-bold">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            required
+                            class="w-full rounded-lg border border-eco bg-white p-3 text-eco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eco dark:border-gold dark:bg-neutral-800 dark:text-white dark:focus-visible:outline-gold"></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="eco-button w-full">
+                        Send Message
+                    </button>
+
+                    <p
+                        id="formStatus"
+                        role="status"
+                        aria-live="polite"
+                        class="text-sm font-bold">
+                    </p>
+                </form>
+            </div>
         </section>
-
     </main>
 
-    <!-- 7. Footer -->
-    <footer>
-        <p>© 2026 Waste Less, and Live More 🌎</p>
-        <p>Choose Green. Live Clean.</p>
+    <!-- Footer -->
+    <footer class="bg-white px-6 py-8 text-center dark:bg-neutral-900">
+        <p class="font-bold">
+            © 2026 Waste Less, and Live More 🌎
+        </p>
+
+        <p class="mt-2 text-sm text-eco dark:text-neutral-300">
+            Choose Green. Live Clean.
+        </p>
     </footer>
 
-    <!-- 8. GSAP library -->
+    <!-- Load GSAP, then ScrollTrigger, then the project script. -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-
-    <!-- 9. ScrollTrigger library -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
-    <!-- 10. Your JavaScript -->
     <script>
-        // Put your dark mode code here.
-        // Put your contact form code here.
-        // Put your GSAP timeline here.
-        // Put your ScrollTrigger reveal code here.
-        // Put your scroll progress code here.
-        // Put your replay button code here.
-    </script>
+        // Dark mode toggle with a label showing the next action.
+        const darkModeToggle = document.getElementById("darkModeToggle");
 
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains("dark");
+
+            darkModeToggle.textContent = isDark ? "Light" : "Dark";
+            darkModeToggle.setAttribute("aria-pressed", String(isDark));
+        }
+
+        darkModeToggle.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            updateThemeButton();
+        });
+
+        updateThemeButton();
+
+        // This demo form displays a message but does not send data.
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            formStatus.textContent =
+                "Thank you! This demo form does not send messages.";
+        });
+
+        // GSAP setup.
+        gsap.registerPlugin(ScrollTrigger);
+
+        const progressBar = document.getElementById("progressBar");
+        let introTimeline = null;
+
+        // Respect the visitor's reduced-motion preference.
+        const motionSettings = gsap.matchMedia();
+
+        motionSettings.add(
+            "(prefers-reduced-motion: no-preference)",
+            () => {
+                // power2.out gives the entrance a smooth, natural finish.
+                introTimeline = gsap.timeline({
+                    paused: true,
+                    defaults: {
+                        duration: 0.6,
+                        ease: "power2.out"
+                    }
+                });
+
+                introTimeline
+                    .from("#heroContent h1", {
+                        y: 30,
+                        opacity: 0
+                    })
+                    .from("#heroContent > p", {
+                        y: 20,
+                        opacity: 0
+                    }, "-=0.3")
+                    .from("#heroContent a, #replayBtn", {
+                        y: 15,
+                        opacity: 0,
+                        stagger: 0.2
+                    }, "-=0.2")
+                    .from("#heroImage", {
+                        scale: 0.8,
+                        opacity: 0
+                    }, "<");
+
+                introTimeline.play();
+
+                // Reveal every section below the hero on scroll.
+                gsap.utils.toArray(".reveal").forEach((section) => {
+                    gsap.from(section, {
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                });
+
+                // Scroll progress uses no easing because it follows scroll.
+                gsap.to(progressBar, {
+                    width: "100%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: document.documentElement,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: true,
+                        onUpdate: (self) => {
+                            progressBar.setAttribute(
+                                "aria-valuenow",
+                                String(Math.round(self.progress * 100))
+                            );
+                        }
+                    }
+                });
+
+                // Clean up the intro reference when motion settings change.
+                return () => {
+                    introTimeline = null;
+                    progressBar.style.width = "0%";
+                    progressBar.setAttribute("aria-valuenow", "0");
+                };
+            }
+        );
+
+        // Replay the intro only when motion is allowed.
+        document.getElementById("replayBtn").addEventListener("click", () => {
+            if (introTimeline) {
+                introTimeline.restart();
+            }
+        });
+    </script>
 </body>
 </html>
