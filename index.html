@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <!-- 1. Page settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Less, and Live More</title>
+
+    <!-- 2. Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- 3. Custom styles and design tokens -->
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @theme {
+            --color-cream: #F7F5E9;
+            --color-eco: #15370D;
+            --color-leaf: #728E6D;
+            --color-gold: #E5CD82;
+        }
+
+        @layer components {
+            .eco-card {
+                @apply rounded-2xl bg-white p-6 shadow-md dark:bg-neutral-900 dark:text-white;
+            }
+
+            .eco-button {
+                @apply rounded-full bg-gold px-5 py-3 font-bold text-eco;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-cream text-eco dark:bg-neutral-950 dark:text-white">
+
+    <!-- 4. Scroll progress bar -->
+    <div id="progressBar"></div>
+
+    <!-- 5. Header and navigation -->
+    <header>
+        <nav>
+            <!-- Brand name -->
+            <a href="#home">♻ Waste Less</a>
+
+            <!-- Navigation links -->
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+
+            <!-- Dark mode button -->
+            <button id="darkModeToggle" type="button">
+                Light Mode
+            </button>
+        </nav>
+    </header>
+
+    <!-- 6. Main content -->
+    <main>
+
+        <!-- Hero section -->
+        <section id="home">
+            <div id="heroContent">
+                <h1>Waste Less, and Live More.</h1>
+                <p>Reduce waste and create a cleaner community.</p>
+
+                <a href="#products">Explore Products</a>
+                <button id="replayBtn" type="button">
+                    Replay Intro
+                </button>
+            </div>
+
+            <div id="heroImage">
+                <h2>🌿♻️🌎</h2>
+                <p>Choose Green. Live Clean.</p>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about" class="reveal">
+            <h2>About Us</h2>
+            <p>
+                We promote recycling, proper waste segregation,
+                and upcycling to protect the environment.
+            </p>
+        </section>
+
+        <!-- Products section -->
+        <section id="products" class="reveal">
+            <h2>Our Products</h2>
+
+            <article class="eco-card">
+                <h3>Recycled Planters</h3>
+            </article>
+
+            <article class="eco-card">
+                <h3>Eco-Bricks</h3>
+            </article>
+
+            <article class="eco-card">
+                <h3>Upcycled Bags</h3>
+            </article>
+        </section>
+
+        <!-- Services section -->
+        <section id="services" class="reveal">
+            <h2>Our Services</h2>
+            <article class="eco-card">Recycling</article>
+            <article class="eco-card">Waste Collection</article>
+            <article class="eco-card">Upcycled Products</article>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="reveal">
+            <h2>Contact Us</h2>
+
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="eco-button">
+                    Send Message
+                </button>
+
+                <p id="formStatus" role="status"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- 7. Footer -->
+    <footer>
+        <p>© 2026 Waste Less, and Live More 🌎</p>
+        <p>Choose Green. Live Clean.</p>
+    </footer>
+
+    <!-- 8. GSAP library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <!-- 9. ScrollTrigger library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <!-- 10. Your JavaScript -->
+    <script>
+        // Put your dark mode code here.
+        // Put your contact form code here.
+        // Put your GSAP timeline here.
+        // Put your ScrollTrigger reveal code here.
+        // Put your scroll progress code here.
+        // Put your replay button code here.
+    </script>
+
+</body>
+</html>
